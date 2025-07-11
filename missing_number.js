@@ -26,7 +26,6 @@ const missingNum = (nums) => {
             return i;
         }
     }
-    return -1;
 };
 exports.missingNum = missingNum;
 const nums = [3, 0, 1];
