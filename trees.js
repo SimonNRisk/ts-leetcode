@@ -45,3 +45,19 @@ export const depthFirstTraversal = (root) => {
 };
 
 console.log(depthFirstTraversal(a));
+
+export const depthFirstTraversalR = (root) => {
+  if (root === null) {
+    return [];
+  }
+  const leftVals = depthFirstTraversalR(root.left); //[b, d, e]
+  const rightVals = depthFirstTraversalR(root.right); //[c, f]
+  return [root.val, ...leftVals, ...rightVals];
+};
+
+console.log(depthFirstTraversalR(a));
+
+//reminder of spread:
+const peeps = ["Filipe", "Jason", "Raj", "John"];
+const newPeeps = ["Alvin", ...peeps, "Ryan"];
+console.log(newPeeps);
