@@ -25,6 +25,9 @@ c.right = f;
 //push right child first so left child (which we visit first) is top of stack
 
 export const depthFirstTraversal = (root) => {
+  if (root === null) {
+    return [];
+  }
   const stack = [root]; //just an array as long as we use push and pop
   const result = [];
   while (stack.length > 0) {
