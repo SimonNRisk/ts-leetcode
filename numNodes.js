@@ -1,0 +1,34 @@
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+const a = new Node("A");
+const b = new Node("B");
+const c = new Node("C");
+const d = new Node("D");
+const e = new Node("E");
+const f = new Node("F");
+
+a.left = b;
+a.right = c;
+
+b.left = d;
+b.right = e;
+c.right = f;
+
+export const numNodes = (root) => {
+  let counter = 0;
+  if (root === null) {
+    return 0;
+  }
+  counter = 1;
+  const leftNodes = numNodes(root.left);
+  const rightNodes = numNodes(root.right);
+  return counter + leftNodes + rightNodes;
+};
+
+console.log(numNodes(a));
