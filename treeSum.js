@@ -37,3 +37,10 @@ export const treeSum = (root) => {
 };
 
 console.log(treeSum(a));
+
+export const treeSumR = (root) => {
+  if (root === null) return 0;
+  return root.val + treeSum(root.left) + treeSum(root.right);
+};
+
+console.log(treeSumR(a));

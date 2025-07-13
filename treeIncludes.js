@@ -45,3 +45,19 @@ console.log(treeIncludes(a, "A"));
 console.log(treeIncludes(a, "F"));
 console.log(treeIncludes(a, "E"));
 console.log(treeIncludes(a, "Z"));
+
+export const treeIncludesR = (root, target) => {
+  if (root === null) {
+    return false;
+  }
+  if (root.val === target) {
+    return true;
+  }
+  return treeIncludesR(root.left, target) || treeIncludesR(root.right, target);
+};
+
+console.log(treeIncludesR(null, "B"));
+console.log(treeIncludesR(a, "A"));
+console.log(treeIncludesR(a, "F"));
+console.log(treeIncludesR(a, "E"));
+console.log(treeIncludesR(a, "Z"));
