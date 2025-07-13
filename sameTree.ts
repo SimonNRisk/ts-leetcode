@@ -23,15 +23,15 @@ b.left = d;
 b.right = e;
 c.right = f;
 
-export const dft = (root: Node | null): string[] => {
-  if (root === null) {
-    return [];
+export const sameTree = (p: Node | null, q: Node | null): boolean => {
+  if (p === null && q === null) {
+    return true;
   }
-  const leftVals = dft(root.left);
-  const rightVals = dft(root.right);
-  return [root.val, ...leftVals, ...rightVals];
-};
-
-export const sameTree = (p: Node, q: Node) => {
-  return dft(p) === dft(q);
+  if ((p === null && q !== null) || (p !== null && q === null)) {
+    return false;
+  }
+  if (p?.val !== q?.val) {
+    return false;
+  }
+  return sameTree(p!.left, q!.left) && sameTree(p!.right, q!.right);
 };
