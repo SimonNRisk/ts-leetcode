@@ -20,14 +20,9 @@ b.left = d;
 b.right = e;
 c.right = f;
 
-export const leafCount = (root) => {
-  if (root === null) {
-    return 0;
-  }
-  if (root.left === null && root.right === null) {
-    return 1;
-  }
-  return leafCount(root.left) + leafCount(root.right);
+export const mD = (root) => {
+  if (root === null) return 0;
+  return 1 + Math.max(mD(root.left), mD(root.right));
 };
 
-console.log(leafCount(a));
+console.log(mD(a));
